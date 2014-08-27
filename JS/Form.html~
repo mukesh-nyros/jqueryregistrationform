@@ -1,0 +1,149 @@
+<html>
+   <head>
+          <link href="./CSS/form.css" rel="stylesheet" type="text/css" media="all"/>
+          <script src="./JS/Validations.js" ></script>     <!--Includes Validate functions checking input patterns-->
+          <script src="./JS/Progress.js" ></script>         <!--Includes Progress bar functions checking conditions and increases progress-->
+	        <script src="./JS/yourdata.js" ></script>          <!--Includes form data functions for displaying user entered data-->
+	
+  </head>
+  <body>
+   <p id="success"><span>Success!</span>You have submitted your data.</p>
+
+  
+    <div id="main">
+        
+      <div class="main2">
+        <h3 align="center">Registration Form</h3>
+         <progress id="myprogress" value="0" max="99"></progress>
+          <form name="myForm"   id="form1"  onsubmit="return formvalidate()" method="post">
+          <fieldset class="field">
+				    <!-- Start of Account Information fieldset -->
+
+         <legend>Account Information</legend>
+         <table>
+         <tr>
+         <td><label>UserName:<sup style="color:red">*</sup></label></td>
+         <td><input type="text"  name="uname" class="user" onchange="progress()" onblur="uservalid()"><span id='usrname' ></span></td> 
+         </tr>
+         <tr>
+         <td><label>Password:<sup style="color:red">*</sup></label></td>
+         <td><input type="password" name="pwd" class="key" onchange="progress()" onblur="passvalid()"><span id='pswd' ></span></td>
+         </tr>
+         </table>
+         </fieldset>
+				   <!-- End of Account Information fieldset -->
+         <br><br>
+
+         <fieldset class="field1">
+				 <!-- Start of Personal Information fieldset-->
+         <legend>Personal Information</legend>
+         <table>
+
+         <tr>
+         <td><label>First Name:<sup style="color:red">*</sup></label></td>
+         <td><input type="text" name="fname" class="fn" onchange="progress()" onblur="firstvalid()"><span id='firstname' ></span></td>
+         </tr>
+
+         <tr>
+         <td><label>Last Name:<sup style="color:red">*</sup></label></td>
+         <td><input type="text" name="lname" class="fn" onchange="progress()" onblur="lastvalid()"><span id='lastname' ></span></td>
+         </tr>
+
+         <tr>
+         <td><label>Profile Pic:<sup style="color:red">*</sup></label></td>
+         <td><input type="file" name="pic" accept="image/*" onchange="progress()" onblur="profilevalid()"><span id='ppict' ></span></td>
+         </tr>
+
+         <tr>
+         <td><label>Gender:<sup style="color:red">*</sup></label><span id='gend' ></span></td>
+         <td><input type="radio" name="sex"  checked>Male
+          <input type="radio" name="sex" >FeMale
+         </td>
+         </tr>
+
+
+       <tr>
+       <td><label>Date of Birth:<sup style="color:red">*</sup></label></td>
+       <td>
+       <select name="day" onchange="progress()" onblur="dayvalid()">
+       <option></option>
+       <option>01</option><option>02</option><option>03</option><option>04</option>
+       <option>05</option>
+       <option>06</option><option>07</option><option>08</option><option>09</option>
+       <option>10</option><option>11</option><option>12</option><option>13</option>
+       <option>14</option><option>15</option><option>16</option><option>17</option>
+       <option>17</option><option>18</option><option>20</option><option>21</option>
+       <option>22</option><option>23</option><option>24</option><option>25</option>
+       <option>26</option><option>27</option><option>28</option><option>29</option>
+       <option>30</option> <option>31</option>
+       </select>
+ 
+
+      <select name="month" onchange="progress()" onblur="monthvalid()">
+      <option></option>
+      <option>January</option><option>February</option><option>March</option>
+      <option>April</option><option>May</option><option>June</option><option>July</option>
+      <option>August</option><option>September</option><option>October</option>
+      <option>November</option><option>December</option>
+      </select>
+  
+      <select name="year" onchange="progress()" onblur="yearvalid()">
+      <option></option>
+      <option>1985</option><option>1986</option><option>1987</option><option>1988</option>
+      <option>1989</option><option>1990</option><option>1991</option><option>1992</option>
+      <option>1993</option><option>1994</option>
+      </select>
+      <span id='dobyear' ></span>
+     </td>  
+     </tr>
+
+     <tr>
+     <td><label>Hobbies:<sup style="color:red">*</sup></label></td>
+     <td>
+      <input type="radio" name="hobbies" id="h1" onchange="progress()" onblur="hobbvalid()">Painting
+      <input type="radio" name="hobbies" id="h2" onchange="progress()" onblur="hobbvalid()">Singing
+      <input type="radio" name="hobbies" id="h3" onchange="progress()" onblur="hobbvalid()">Travelling
+      <input type="radio" name="hobbies" id="h4" onchange="progress()" onblur="hobbvalid()">Dancing
+      <input type="radio" name="hobbies" id="h5" onchange="progress()" onblur="hobbvalid()">Gardening
+      <input type="radio" name="hobbies" id="h6" onchange="progress()" onblur="hobbvalid()">Others  <span id='hobby' ></span></td>	
+     </tr>
+
+
+     <tr>
+     <td><label>Have been to:<sup style="color:red">*</sup></label><span id="cont" ></span></td>
+     <td> <select name="countries" id ="countries" onchange="progress()" onblur="counvalid()" multiple>
+    <option></option> 
+    <option>America</option>
+     <option>Australia</option>
+     <option>China</option>
+     <option>Japan</option></td>
+     </select>
+     </tr>
+
+     </table>
+     </fieldset>
+				<!-- End of Personal Information fieldset-->
+     <br><br>
+
+
+
+     <fieldset class="field2">
+				<!-- Start of Contact Information fieldset-->
+     <legend>Contact Information</legend>
+     <table>
+     <tr>
+     <td><label>Phone :<sup style="color:red">*</sup></label></td>
+     <td><input type="text" name="pno" onchange="progress()" class="ph" onblur="phnovalid()"><span id='mobileno' ></span></td>
+     </tr>
+     </table>
+      <button class="sub" type="submit" ></button>
+     </fieldset>
+				<!-- End of Contact Information fieldset-->
+      <br>   
+
+   </form>
+ </div>
+</div>
+  
+ </body>
+</html>
